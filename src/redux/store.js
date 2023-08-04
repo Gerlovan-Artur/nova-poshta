@@ -1,3 +1,5 @@
+import { configureStore } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
   persistReducer,
@@ -8,10 +10,16 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { infoReducer } from './slice';
+
+const infoPersistConfig = {
+  key: 'info',
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
-    
+    info: persistReducer(infoPersistConfig, infoReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
