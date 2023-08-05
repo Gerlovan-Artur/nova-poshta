@@ -1,9 +1,13 @@
-import { SearchForm } from '../../components/form/Form';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchInfo } from '../../redux/operations';
-import { selectInfo, selectTtnNumber } from '../../redux/selectors';
+import { InfoCard } from 'components/InfoCard/InfoCard';
+import { RequestHistory } from 'components/RequestHistory/RequestHistory';
+import { SearchForm } from 'components/SearchForm/SearchForm';
 
 export default function CheckTtn() {
-  return <SearchForm />;
+  return (
+    <>
+      <SearchForm />
+      <InfoCard />
+      <RequestHistory />
+    </>
+  );
 }

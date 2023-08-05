@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchInfo } from './operations';
+import { fetchInfo, fetchDepartments } from 'redux/operations';
 
 const initialState = {
-  info: {},
+  ttnInfo: {},
+  selectedNumber: '',
+  ttnNumbersList: [],
+  departmentsList: [],
   infoError: false,
+  departmentsError: false,
   isLoading: false,
 };
 
@@ -14,6 +18,13 @@ const infoSlice = createSlice({
     updateError(state, action) {
       state.infoError = action.payload;
     },
+    updateSelectedNumber(state, action) {
+      state.selectedNumber = action.payload;
+    },
+
+    clearRequestHistory(state, action) {
+      state.ttnNumbersList = [];
+    },
   },
   extraReducers: {
     [fetchInfo.pending](state, action) {
@@ -21,16 +32,41 @@ const infoSlice = createSlice({
       state.isLoading = true;
     },
     [fetchInfo.fulfilled](state, action) {
-      state.info = action.payload;
+      state.ttnInfo = action.payload;
       state.isLoading = false;
+      console.log(action.payload);
+
+      const currentTtnNumber = action.payload.Number;
+      if (!state.ttnNumbersList.includes(currentTtnNumber)) {
+        state.ttnNumbersList.push(currentTtnNumber);
+      }
+      state.selectedNumber = currentTtnNumber;
     },
     [fetchInfo.rejected](state, action) {
       state.isLoading = false;
-      state.infoError = true;
+      state.infoError = action.payload[0];
+    },
+    [fetchDepartments.pending](state, action) {
+      state.departmentsError = false;
+      state.isLoading = true;
+    },
+    [fetchDepartments.fulfilled](state, action) {
+      state.departmentsList = action.payload;
+
+      state.isLoading = false;
+    },
+    [fetchDepartments.rejected](state, action) {
+      state.isLoading = false;
+      state.departmentsError = true;
     },
   },
 });
 
-export const { updateError } = infoSlice.actions;
+export const {
+  updateError,
+  updateSelectedNumber,
+  deleteSelectedNumber,
+  clearRequestHistory,
+} = infoSlice.actions;
 
 export const infoReducer = infoSlice.reducer;
