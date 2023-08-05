@@ -1,11 +1,13 @@
-import { InfoCard } from '../../components/card/Card';
-import { SearchForm } from '../../components/form/Form';
+import { InfoCard } from 'components/InfoCard/InfoCard';
+import { RequestHistory } from 'components/RequestHistory/RequestHistory';
+import { SearchForm } from 'components/SearchForm/SearchForm';
 
 export default function CheckTtn() {
-    return (
+  return (
     <>
       <SearchForm />
       <InfoCard />
+      <RequestHistory />
     </>
   );
 }
