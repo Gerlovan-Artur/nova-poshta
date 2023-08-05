@@ -4,6 +4,12 @@ import { selectInfo, selectNumbersList } from '../../redux/selectors';
 
 import { updateSelectedNumber } from '../../redux/slice';
 
+import {
+  InfoWrapper,
+  InfoEl,
+  InfoElContent,
+} from './Card.styled';
+
 export const InfoCard = () => {
   const { Status, WarehouseRecipient, WarehouseSender } =
     useSelector(selectInfo);
@@ -17,9 +23,10 @@ export const InfoCard = () => {
     dispatch(fetchInfo(clickedNumber));
   };
   return (
-    <>
-      <div>
+    <InfoWrapper>
+      <InfoEl>
         Статус доставки:
+<<<<<<< Updated upstream
         {Status}
       </div>
       <div>
@@ -48,3 +55,32 @@ export const InfoCard = () => {
     </>
   );
 };
+=======
+        {StatusCode === '3' ? (
+          <InfoEl>
+            Номер ТТН не знайдено. Перевірте номер та спробуйте ще раз
+          </InfoEl>
+        ) : (
+          <InfoElContent>{Status}</InfoElContent>
+        )}
+      </InfoEl>
+      <InfoEl>
+        Відправлено:
+        <InfoElContent>
+          {WarehouseSender}
+          <br />
+          Населений пункт: {CitySender}
+        </InfoElContent>
+      </InfoEl>
+      <InfoEl>
+        Отримано:
+        <InfoElContent>
+          {WarehouseRecipient}
+          <br />
+          Населений пункт: {CityRecipient}
+        </InfoElContent>
+      </InfoEl>
+    </InfoWrapper>
+  );
+};
+>>>>>>> Stashed changes
