@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchInfo } from '../redux/operations';
+import { fetchInfo, fetchDepartments } from 'redux/operations';
 
 const initialState = {
   ttnInfo: {},
   selectedNumber: '',
   ttnNumbersList: [],
+  departmentsList: [],
   infoError: false,
+  departmentsError: false,
   isLoading: false,
 };
 
@@ -18,7 +20,10 @@ const infoSlice = createSlice({
     },
     updateSelectedNumber(state, action) {
       state.selectedNumber = action.payload;
-      // console.log('action.payload', action.payload);
+    },
+
+    clearRequestHistory(state, action) {
+      state.ttnNumbersList = [];
     },
   },
   extraReducers: {
@@ -29,6 +34,8 @@ const infoSlice = createSlice({
     [fetchInfo.fulfilled](state, action) {
       state.ttnInfo = action.payload;
       state.isLoading = false;
+      console.log(action.payload);
+
       const currentTtnNumber = action.payload.Number;
       if (!state.ttnNumbersList.includes(currentTtnNumber)) {
         state.ttnNumbersList.push(currentTtnNumber);
@@ -37,11 +44,29 @@ const infoSlice = createSlice({
     },
     [fetchInfo.rejected](state, action) {
       state.isLoading = false;
-      state.infoError = true;
+      state.infoError = action.payload[0];
+    },
+    [fetchDepartments.pending](state, action) {
+      state.departmentsError = false;
+      state.isLoading = true;
+    },
+    [fetchDepartments.fulfilled](state, action) {
+      state.departmentsList = action.payload;
+
+      state.isLoading = false;
+    },
+    [fetchDepartments.rejected](state, action) {
+      state.isLoading = false;
+      state.departmentsError = true;
     },
   },
 });
 
-export const { updateError, updateSelectedNumber } = infoSlice.actions;
+export const {
+  updateError,
+  updateSelectedNumber,
+  deleteSelectedNumber,
+  clearRequestHistory,
+} = infoSlice.actions;
 
 export const infoReducer = infoSlice.reducer;
