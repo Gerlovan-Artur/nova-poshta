@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import { useSelector } from 'react-redux';
 import { selectInfo } from '../../redux/selectors';
 
@@ -34,4 +32,4 @@ export const InfoCard = () => {
     </>
   );
 };
->>>>>>> Stashed changes
+

@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
+
 import { selectDepartmentsList, selectDepartmentsError } from '../../redux/selectors';
+
 
 export const DepartmentsListResult = () => {
   const listOfDepartments = useSelector(selectDepartmentsList);

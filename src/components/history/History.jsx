@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import {
   updateSelectedNumber,
   clearRequestHistory,
@@ -7,6 +5,7 @@ import {
 import { selectNumbersList } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchInfo } from '../../redux/operations';
+
 import { nanoid } from 'nanoid';
 
 export const RequestHistory = () => {
@@ -52,4 +51,4 @@ export const RequestHistory = () => {
     </ul>
   );
 };
->>>>>>> Stashed changes
+
