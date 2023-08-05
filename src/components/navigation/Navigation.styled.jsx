@@ -39,7 +39,7 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 32px;
+    font-size: 30px;
     padding: 30px;
     margin-left: 30px;
     width: 300px;
