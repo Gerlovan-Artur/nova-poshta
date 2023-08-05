@@ -1,10 +1,11 @@
 import {
   updateSelectedNumber,
   clearRequestHistory,
-} from 'redux/slice';
-import { selectNumbersList } from 'redux/selectors';
+} from '../../redux/slice';
+import { selectNumbersList } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchInfo } from 'redux/operations';
+import { fetchInfo } from '../../redux/operations';
+
 import { nanoid } from 'nanoid';
 
 export const RequestHistory = () => {
@@ -50,3 +51,4 @@ export const RequestHistory = () => {
     </ul>
   );
 };
+

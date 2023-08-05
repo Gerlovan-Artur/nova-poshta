@@ -1,5 +1,5 @@
-import { DepartmentsForm } from 'components/DepartmentsForm/DepartmentsForm';
-import { DepartmentsListResult } from 'components/DepartmentsListResult/DepartmentsListResult';
+import { DepartmentsForm } from '../../components/departments/Form';
+import { DepartmentsListResult } from '../../components/departments/List';
 
 export default function DepartmentList() {
   return (

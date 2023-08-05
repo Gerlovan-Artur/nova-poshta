@@ -2,7 +2,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 
-import { fetchDepartments } from 'redux/operations';
+
+import { fetchDepartments } from '../../redux/operations';
+
 
 const schema = yup.object().shape({
   cityName: yup

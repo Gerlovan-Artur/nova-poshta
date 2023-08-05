@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectInfo } from 'redux/selectors';
+import { selectInfo } from '../../redux/selectors';
 
 export const InfoCard = () => {
   const cargoInfo = useSelector(selectInfo);
@@ -32,3 +32,4 @@ export const InfoCard = () => {
     </>
   );
 };
+
