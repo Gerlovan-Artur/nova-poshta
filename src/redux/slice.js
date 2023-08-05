@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchInfo, fetchDepartments } from 'redux/operations';
+import { fetchInfo, fetchDepartments } from '../redux/operations';
 
 const initialState = {
   ttnInfo: {},
