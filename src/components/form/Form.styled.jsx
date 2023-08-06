@@ -54,8 +54,7 @@ export const SubmitButton = styled.button`
   padding: 5px;
   transition: all 0.3s linear;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: #fa4a3b;
     background-color: #c2c2c2;
   }
