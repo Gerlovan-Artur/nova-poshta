@@ -1,10 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-
 import { fetchInfo } from '../../redux/operations';
 import { selectError, selectSelectedNumber } from '../../redux/selectors';
 
+import { Formik, useFormikContext } from 'formik';
 
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from 'formik';
+import {
+  FormEl,
+  InputEl,
+  SubmitButton,
+  Error,
+  InfoError,
+  InputWrapper,
+} from './Form.styled';
+
 import * as yup from 'yup';
 import { useEffect } from 'react';
 
@@ -30,15 +38,15 @@ const TtnInput = () => {
 
   return (
     <>
-      <Field type="text" name="ttnNumber" placeholder="Введіть номер ТТН" />
-      <ErrorMessage name="ttnNumber" component="div" />
+      <InputEl type="text" name="ttnNumber" placeholder="Введіть номер накладної" />
+      <Error name="ttnNumber" component="div" />
     </>
   );
 };
 
 export const SearchForm = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
+  let error = useSelector(selectError);
 
   const handleSubmit = values => {
     dispatch(fetchInfo(values.ttnNumber));
@@ -50,11 +58,13 @@ export const SearchForm = () => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <TtnInput />
-        {error && <div>Невірний номер ТТН</div>}
-        <button type="submit">Отримати статус ТТН</button>
-      </Form>
+      <FormEl>
+        <InputWrapper>
+          <TtnInput />
+          <InfoError error={error}>Невірний номер ТТН</InfoError>
+        </InputWrapper>
+        <SubmitButton type="submit">Відстежити</SubmitButton>
+      </FormEl>
     </Formik>
   );
 };
