@@ -1,12 +1,16 @@
-import {
-  updateSelectedNumber,
-  clearRequestHistory,
-} from '../../redux/slice';
+import { updateSelectedNumber, clearRequestHistory } from '../../redux/slice';
 import { selectNumbersList } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchInfo } from '../../redux/operations';
-
 import { nanoid } from 'nanoid';
+
+import {
+  ListWrapper,
+  ListHeader,
+  ListEl,
+  ListItem,
+  ClearButton,
+} from './History.styled';
 
 export const RequestHistory = () => {
   const requestHistory = useSelector(selectNumbersList);
@@ -23,32 +27,34 @@ export const RequestHistory = () => {
     dispatch(fetchInfo(clickedNumber));
   };
   return (
-    <ul>
-      Історія
-      {requestHistory.map(item => {
-        return (
-          <li key={nanoid()}>
-            <div
-              onClick={() => {
-                handleClick(item);
-              }}
-            >
-              {item}
-            </div>
-          </li>
-        );
-      })}
+    <ListWrapper>
+      <ListHeader>Історія пошуку</ListHeader>
+      <ListEl requestHistory={requestHistory}>
+        {requestHistory.map(item => {
+          return (
+            <ListItem key={nanoid()}>
+              <div
+                onClick={() => {
+                  handleClick(item);
+                }}
+              >
+                {item}
+              </div>
+            </ListItem>
+          );
+        })}
+      </ListEl>
       {requestHistory.length !== 0 && (
-        <button
+        <ClearButton
           type="button"
           onClick={() => {
             clearHistory();
           }}
         >
-          clear
-        </button>
+          Очистити історію
+        </ClearButton>
       )}
-    </ul>
+    </ListWrapper>
   );
 };
 

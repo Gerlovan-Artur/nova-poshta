@@ -43,20 +43,21 @@ export const InputEl = styled(Field)`
 export const SubmitButton = styled.button`
   width: 150px;
   height: 40px;
-  background-color: #5d5e5e;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid black;
+  
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  color: #ffffff;
+  color: #3c3636;
 
   padding: 5px;
   transition: all 0.3s linear;
 
   &:hover,
   &:focus {
-    background-color: #b11b1b;
+    color: #fa4a3b;
+    background-color: #c2c2c2;
   }
 `;
 
