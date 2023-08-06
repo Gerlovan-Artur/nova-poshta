@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Nav } from '../navigation/Navigation';
-import Container from '../Container/Container';
+import Container from '../container/Container';
 
 import { Suspense } from 'react';
 
