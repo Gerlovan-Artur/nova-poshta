@@ -20,6 +20,10 @@ export const InputWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    min-height: 84px;
+  }
 `;
 
 export const InputEl = styled(Field)`
@@ -58,10 +62,13 @@ export const SubmitButton = styled.button`
     color: #fa4a3b;
     background-color: #c2c2c2;
   }
+  @media screen and (min-width: 768px) {
+    margin-left: 30px;
+  }
 `;
 
 export const Error = styled(ErrorMessage)`
-  width: 300px;
+  width: 250px;
   text-align: center;
   color: red;
 
@@ -69,12 +76,13 @@ export const Error = styled(ErrorMessage)`
   font-size: 12px;
 
   
+  
 `;
 
 export const InfoError = styled.div`
-  width: 300px;
+  width: 250px;
   text-align: center;
-
+  
   margin-bottom: 1px;
   font-weight: 500;
   font-size: 12px;

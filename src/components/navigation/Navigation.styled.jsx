@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 export const NavEl = styled.nav`
   display: flex;
-  padding-top: 10px;
-  
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+  margin-top: 30px;
+  justify-content: center;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -16,14 +20,14 @@ export const StyledNavLink = styled(NavLink)`
   padding: 15px;
   border: 1px solid black;
   border-radius: 8px;
-  margin-left: 10px;
+  margin-right: 10px;
   width: 320px;
   text-align: center;
   
   transition: all 0.3s linear;
 
   &:last-of-type {
-    margin-right: 10px;
+    margin-right: 0px;
         
   }
 
@@ -41,8 +45,9 @@ export const StyledNavLink = styled(NavLink)`
   @media screen and (min-width: 768px) {
     font-size: 30px;
     padding: 30px;
-    margin-left: 30px;
+    margin-right: 20px;
     width: 300px;
     text-align: center;
+    
   }
 `;

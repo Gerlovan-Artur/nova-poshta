@@ -23,14 +23,14 @@ export const RequestHistory = () => {
 
   const handleClick = clickedNumber => {
     dispatch(updateSelectedNumber(clickedNumber));
-
     dispatch(fetchInfo(clickedNumber));
   };
+
   return (
     <ListWrapper>
       <ListHeader>Історія пошуку</ListHeader>
       <ListEl requestHistory={requestHistory}>
-        {requestHistory.map(item => {
+        {requestHistory.slice().reverse().map(item => {
           return (
             <ListItem key={nanoid()}>
               <div
@@ -57,4 +57,3 @@ export const RequestHistory = () => {
     </ListWrapper>
   );
 };
-
