@@ -6,7 +6,7 @@ export const NavEl = styled.nav`
   margin-top: 10px;
 
   @media screen and (min-width: 768px) {
-  margin-top: 30px;
+  margin-top: 0px;
   justify-content: center;
   }
 `;
