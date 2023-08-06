@@ -1,10 +1,10 @@
 @import-normalize;
 
 body {
-    /* background-image: url('../src/img/bg-pattern-2.png'); */
+    
     background-color: #f5f5f6;
     background-repeat: no-repeat;
-    background-size: cover;
+    
     height: 100%;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
