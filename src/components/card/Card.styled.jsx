@@ -8,7 +8,7 @@ export const InfoWrapper = styled.div`
   margin-top: 15px;
 
   @media screen and (min-width: 768px) {
-    align-items: flex-start;
+    
     margin-top: 0;
   }
 `;

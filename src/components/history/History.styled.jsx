@@ -7,8 +7,8 @@ export const ListWrapper = styled.div`
   justify-content: center;
   padding-top: 20px;
 
-  @media screen and (min-width: 900px) {
-    margin-left: 70px;
+  @media screen and (min-width: 768px) {
+    margin-left: 50px;
     padding-top: 0;
     justify-content: flex-start;
   }
@@ -21,7 +21,7 @@ export const ListHeader = styled.div`
   text-align: center;
   border-radius: 5px;
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -31,12 +31,15 @@ export const ListEl = styled.ul`
   flex-wrap: wrap;
   gap: 10px;
   padding: 0;
-  height: 175px;
+  
 
   overflow-y: ${props => {
-    return props.requestHistory.length > 5 ? 'scroll' : 'hidden';
-  }};
-  @media screen and (min-width: 900px) {
+    return props.requestHistory.length > 3 ? 'scroll' : 'hidden';
+}};
+  @media screen and (max-width: 767px) {
+    max-height: 100px;
+  }
+  @media screen and (min-width: 768px) {
     height: 315px;
     overflow-y: ${props => {
       return props.requestHistory.length > 9 ? 'scroll' : 'hidden';
@@ -49,7 +52,7 @@ export const ListItem = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 180px;
+  width: 140px;
   
   padding: 5px;
   text-align: center;
